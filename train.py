@@ -218,6 +218,8 @@ def train(train_adj_mats, test_adj_mats, train_attr_vecs, test_attr_vecs, opt=No
 			opt_enc.step()
 			Encoder_list.append(err_enc.data.mean())
 
+		save_models(opt.output_dir)
+
 		print('[%d/%d]: D_real:%.4f, D_enc:%.4f, D_noise:%.4f, Loss_D:%.4f, Loss_G:%.4f, rec_loss:%.4f, prior_loss:%.4f'
 			     %(epoch,
 				 max_epochs,
@@ -230,7 +232,7 @@ def train(train_adj_mats, test_adj_mats, train_attr_vecs, test_attr_vecs, opt=No
 				 torch.mean(torch.stack(prior_loss_list))))
 
 		print('Training set')
-		for i in range(3):
+		for i in range(1):
 			base_adj = train_adj_mats[i]
 
 			if base_adj.shape[0] <= opt.d_size:
@@ -244,7 +246,10 @@ def train(train_adj_mats, test_adj_mats, train_attr_vecs, test_attr_vecs, opt=No
 			print('Show sample')
 			sample_adj = gen_adj(G, base_adj.shape[0], int(np.sum(base_adj)) // 2, attr_vec, z_size=opt.z_size)
 
-			show_graph(sample_adj, base_adj=base_adj, remove_isolated=True)
+			# show_graph(sample_adj, base_adj=base_adj, remove_isolated=True)
+
+			d = get_a_adj_statistics(sample_adj, remove_isolated=True)
+			print('d: ', d)
 
 
 if __name__ == '__main__':
@@ -259,4 +264,5 @@ if __name__ == '__main__':
 		DATA_DIR=opt.DATA_DIR)
 
 	# output_dir = opt.output_dir
+	opt.output_dir = os.path.join(opt.output_dir, get_current_time())
 	train(train_adj_mats, test_adj_mats, train_attr_vecs, test_attr_vecs, opt=opt)

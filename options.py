@@ -26,7 +26,7 @@ class Options():
 		parser.add_argument('--gpu', type=str, default='0', help='gpu id')
 		parser.add_argument('--DATA_DIR', type=str, default='../datasets/dblp/', help='output dir')
 
-		parser.add_argument('--output_dir', type=str, default='./output/', help='output dir')
+		parser.add_argument('--output_dir', type=str, default='../outputs/', help='output dir')
 
 
 		opt = parser.parse_args()
