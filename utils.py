@@ -8,7 +8,7 @@ warnings.filterwarnings("ignore")
 from pprint import pprint
 import numpy as np
 
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import networkx as nx
 import copy
 

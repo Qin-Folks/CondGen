@@ -8,8 +8,6 @@ from scipy.sparse.csgraph import connected_components, minimum_spanning_tree
 # plt.switch_backend('agg')
 
 
-
-
 def statistics_degrees(A_in):
     """
     Compute min, max, mean degree

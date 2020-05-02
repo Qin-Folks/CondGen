@@ -15,7 +15,7 @@ class Options():
 		parser.add_argument('--gc_size', type=int, default=16, help="gc vector")
 
 		parser.add_argument('--adj_thresh', type=float, default=0.6, help='threshold of adj edges')
-		parser.add_argument('--max_epochs', type=int, default=1, help='max epochs')
+		parser.add_argument('--max_epochs', type=int, default=100, help='max epochs')
 
 		parser.add_argument('--lr', type=float, default=0.003, help='learning rate')
 		parser.add_argument('--beta', type=int, default=5, help='beta')
@@ -24,7 +24,7 @@ class Options():
 		parser.add_argument('--gamma', type=int, default=15, help='gamma')
 
 		parser.add_argument('--gpu', type=str, default='0', help='gpu id')
-		parser.add_argument('--DATA_DIR', type=str, default='./data/dblp/', help='output dir')
+		parser.add_argument('--DATA_DIR', type=str, default='../datasets/dblp/', help='output dir')
 
 		parser.add_argument('--output_dir', type=str, default='./output/', help='output dir')
 

@@ -244,8 +244,8 @@ def train(train_adj_mats, test_adj_mats, train_attr_vecs, test_attr_vecs, opt=No
 			print('Show sample')
 			sample_adj = gen_adj(G, base_adj.shape[0], int(np.sum(base_adj)) // 2, attr_vec, z_size=opt.z_size)
 
+			show_graph(sample_adj, base_adj=base_adj, remove_isolated=True)
 
-# show_graph(sample_adj, base_adj=base_adj, remove_isolated=True)
 
 if __name__ == '__main__':
 
